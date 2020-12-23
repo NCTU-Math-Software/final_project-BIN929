@@ -1,15 +1,13 @@
 function main
-    %   踩地雷的主程式
     START_GAME = imread('start_game.png');
     image(START_GAME);
     
-    [N ,bomb_num] = input_data;             %   input 想玩的大小和炸彈數量
-    A = Generate_game_area_background(N);   %   製作游戲背景
+    [N ,bomb_num] = input_data;            
+    A = Generate_game_area_background(N);  
     colormap(colorcube)
     image(A)
-    data = Generate_game_area(N,bomb_num);  %   計算各個格子附近炸彈的數量
-    check = zeros(N);                       %   生成一個 n*n 的矩陣爲了檢查踩過的地方
-    data
+    data = Generate_game_area(N,bomb_num); 
+    check = zeros(N);                       
     while 1
         [x,y,Button] = ginput(1);
         y=round(y);
@@ -26,7 +24,7 @@ function main
                     image(A),drawnow; pause(0.5)
                     B = imread('game_over.png');
                     image(B);
-                    disp('輸了！！！');
+                    disp('Loss！！！');
                     break;
                 end
             end
@@ -76,12 +74,12 @@ function main
             if (win == N*N || (count_bomb == bomb_num && no ==0))
                 you_win = imread('win.png');
                 image(you_win);
-                disp('你贏了！！！');
+                disp('You win ！！！');
                 break;
             end
         end
     end
-    repeat = input('想要在玩多一下次？想玩多一次請輸入數字 1 不想玩的話輸入 0：');
+    repeat = input('Do you want to play one more time? If you want, please press  enter 1  don’t enter 0：');
     if(repeat == 1)
         main
     end   
