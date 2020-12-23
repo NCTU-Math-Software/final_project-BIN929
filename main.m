@@ -78,6 +78,9 @@ function main
                 break;
             end
         end
+        if (Button == 27)
+            break;
+        end
     end
     repeat = input('Do you want to play one more time? If you want, please press  enter 1  don’t enter 0：');
     if(repeat == 1)
