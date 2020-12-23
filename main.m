@@ -9,7 +9,7 @@ function main
     image(A)
     data = Generate_game_area(N,bomb_num);  %   計算各個格子附近炸彈的數量
     check = zeros(N);                       %   生成一個 n*n 的矩陣爲了檢查踩過的地方
-    
+    data
     while 1
         [x,y,Button] = ginput(1);
         y=round(y);
@@ -55,11 +55,17 @@ function main
             image(A)
         
             win = 0;
+            count_bomb = 0;
+            no = 0;
             for ii = 1:N
                 for jj = 1:N
                     if check(ii,jj) ~= 0
                         if check(ii,jj) == 2 && data(ii,jj) == 99
                             win = win +1;
+                            count_bomb = count_bomb + 1;
+                        end
+                        if check(ii,jj) == 2 && data(ii,jj) ~= 99
+                            no = no + 1;
                         end
                         if check(ii,jj) == 1
                             win = win +1;
@@ -67,7 +73,9 @@ function main
                     end
                 end
             end
-            if win == N*N
+            if (win == N*N || (count_bomb == bomb_num && no ==0))
+                you_win = imread('win.png');
+                image(you_win);
                 disp('你贏了！！！');
                 break;
             end
