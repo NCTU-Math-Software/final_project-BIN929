@@ -1,2 +1,5 @@
-# final_project-BIN929
-final_project-BIN929 created by GitHub Classroom
+# final_project-踩地雷
+下載完所有檔案。執行main.m
+
+# 游戲説明
+輸入：可以輸入你要玩多大的 n*n 矩陣。矩陣下限是9*9，上限是16*16。然後可以輸入你的炸彈要放多少。下限是10顆炸彈，上限是（n*n/2）。
