@@ -75,7 +75,7 @@ function main
                 image(A),drawnow; pause(2.0)
                 you_win = imread('win.png');
                 image(you_win);
-                disp('You win！！！');
+                disp('You win!!!');
                 break;
             end
         end
@@ -83,7 +83,7 @@ function main
             break;
         end
     end
-    repeat = input('Do you want to play one more time? If you want, please press  enter 1  don’t enter 0：');
+    repeat = input('Do you want to play one more time? If you want, please press  enter 1  do not enter 0：');
     if(repeat == 1)
         main
     end
